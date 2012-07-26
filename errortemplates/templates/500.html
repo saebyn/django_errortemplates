@@ -1,14 +1,17 @@
-{% load staticfiles %}
+{% load staticfiles i18n %}
+<!DOCTYPE HTML>
 <html>
     <head>
-        <title>Server error</title>
+        <title>{% trans 'Server error' %}</title>
         <link rel="stylesheet" type="text/css"
             href="{% static "errortemplates/style.css" %}"/>
     </head>
     <body>
         <div class="hero-unit">
-            <h1>500 Server error</h1>
+            <h1>{% trans '500 Server error' %}</h1>
+            {% blocktrans %}
             <p>A server error occurred.</p>
+            {% endblocktrans %}
         </div>
     </body>
 </html>

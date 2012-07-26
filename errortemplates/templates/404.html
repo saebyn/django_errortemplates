@@ -1,14 +1,18 @@
-{% load staticfiles %}
+{% load staticfiles i18n %}
+<!DOCTYPE HTML>
 <html>
     <head>
-        <title>Page not found</title>
+        <title>{% trans 'Page not found' %}</title>
         <link rel="stylesheet" type="text/css"
             href="{% static "errortemplates/style.css" %}"/>
     </head>
     <body>
         <div class="hero-unit">
-            <h1>404 Page not found</h1>
+            <h1>{% trans '404 Page not found' %}</h1>
+            {% blocktrans with request_path=request_path %}
             <p>{{ request_path }} was not found on this server.</p>
+            <p>Try going to the <a href="/">home page</a> or <a href="javascript:history.back();">back to the previous page</a>.</p>
+            {% endblocktrans %}
         </div>
     </body>
 </html>
